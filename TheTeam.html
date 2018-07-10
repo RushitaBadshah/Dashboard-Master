@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+
+  <script data-require="angular.js@1.1.5" data-semver="1.1.5" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='css/style.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
+  function slideShowController($scope, $timeout) {
+   var slidesInSlideshow = 4;
+   var slidesTimeIntervalInMs = 3000;
+
+   $scope.slideshow = 1;
+   var slideTimer =
+   $timeout(function interval() {
+       $scope.slideshow = ($scope.slideshow % slidesInSlideshow) + 1;
+       slideTimer = $timeout(interval, slidesTimeIntervalInMs);
+       }, slidesTimeIntervalInMs);
+   }
+   </script>
+   <style>
+
+   .imageslide{
+  width:100%;
+  height:400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  }
+  #footerText {color: white;
+  text-align: center;}
+
+  .imageslide .slider-content {
+  position: absolute;
+  width:100%;
+  height:400px;
+  }
+
+  .animate-enter,.animate-leave {
+  -webkit-transition:1000ms cubic-bezier(.165,.84,.44,1) all;
+  -moz-transition:1000ms cubic-bezier(.165,.84,.44,1) all;
+  -ms-transition:1000ms cubic-bezier(.165,.84,.44,1) all;
+  -o-transition:1000ms cubic-bezier(.165,.84,.44,1) all;
+  transition:1000ms cubic-bezier(.165,.84,.44,1) all;
+  }
+
+  .animate-enter {
+  left:100%;
+  }
+
+  .animate-leave.animate-leave-active {
+  left:-100%;
+  }
+
+  .animate-enter.animate-enter-active,.animate-leave {
+  left:0;
+  }
+
+   </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Rushita</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class=""><a href="Dashboard.html">Home</a></li>
+
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Who we are</a></li>
+            <li><a href="Theteam.html">The Team</a></li>
+            <li><a href="#">Sponsers</a></li> </ul>
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Services<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Who we are</a></li>
+            <li><a href="Theteam.html">The Team</a></li>
+            <li><a href="#">Sponsers</a></li> </ul>
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Resource<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Who we are</a></li>
+            <li><a href="#">The Team</a></li>
+            <li><a href="#">Sponsers</a></li></ul>
+
+            <li class=""><a href="#">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+  <div ng-controller="slideShowController" class="imageslide" ng-switch='slideshow' ng-animate="'animate'">
+      <div class="slider-content" ng-switch-when="1">
+          <img src="images/5.jpg" width="100%" height="400px"/>
+      </div>
+  <div class="slider-content" ng-switch-when="2">
+      <img src="images/3.jpg" width="100%" height="400px"/>
+      </div>
+  <div class="slider-content" ng-switch-when="3">
+      <img src="images/1.jpg" width="100%" height="400px"/>
+      </div>
+  <div class="slider-content" ng-switch-when="4">
+      <img src="images/4.jpg" width="100%" height="400px"/>
+      </div>
+      </div>
+<div class="panel"> </div>
+<div class="container-fluid bg-2 text-center">
+  <h3>Distribution</h3>
+  <p>Birds live and breed in most terrestrial habitats and on all seven continents, reaching their southern extreme in the snow petrel's breeding colonies up to 440 kilometres (270 mi) inland in Antarctica.[54] The highest bird diversity occurs in tropical regions. It was earlier thought that this high diversity was the result of higher speciation rates in the tropics; however recent studies found higher speciation rates in the high latitudes that were offset by greater extinction rates than in the tropics.[55] Several families of birds have adapted to life both on the world's oceans and in them, with some seabird species coming ashore only to breed[56] and some penguins have been recorded diving up to 300 metres (980 ft) deep.
+</div>
+
+<<div class="container-fluid text-center bg-grey">
+  <h2>Birds</h2><br>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/6.jpg" alt="Paris" width="450" height="300"></br>
+        <p><strong>Bird 1</strong></p>
+        <p></p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/7.jpg" alt="New York" width="450" height="300"></br>
+        <p><strong>Bird 2</strong></p>
+        <p></p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/6.jpg" alt="New York" width="450" height="300"></br>
+        <p><strong>Bird 3</strong></p>
+        <p></p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/6.jpg" alt="New York" width="450" height="300"></br>
+        <p><strong>Bird</strong></p>
+        <p></p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="images/7.jpg" alt="San Francisco" width="450" height="300"></br>
+        <p><strong>Bird</strong></p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer" >
+          <div class="panel-footer" style="background-color:#0d47a1;margin:0;">
+<div class="col-4 text-left" style="margin:0;">
+
+            </div>
+            <div class="col-4 text-center" id="footerCenter">
+                <div style="display:inline;color:black;" class="justify-content-md-center">
+
+                <!--    <h6 id="footerText" >Rushita<br> Vacaville, CA</h6>
+                    <h6 id="footerText">(347)393-0160 <br> <a id="myFooterLink" href="mailto:rushitabadshah@gmail.com, 06-Jul-18 00:02:46 UTC">rushitabadshah@gmail.com</a> </h6>
+-->
+                </div>
+
+            </div>
+            <div class="col-4 text-right" style="margin:0;padding-top:20px;">
+                <div style="display:inline;" class="justify-content-md-right">
+                    <h5 id="footerText">&copy;2018: Rushita Badshah. All Rights Reserved.</h5>
+                    <h5 id="footerText">Developed by Rushita Badshah</h5>
+                </div>
+
+            </div>
+
+</div>
+        </div>
+
+    </footer>
+
+</body>
+</html>

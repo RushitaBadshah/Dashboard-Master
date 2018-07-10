@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example</title>
+<style>
+  .container{
+  width:300px;
+}
+div.ex2 {
+    max-width:500px;
+    margin: 70%;
+    max-height: 200px;
+
+}
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+</style>
+<link href='css/style.css' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module("Mypage", []);
+app.controller("myCtrl", function($scope) {
+    $scope.page = ["Home","About","Team","Sponsers","Sevices"];
+    $scope.createpage = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {return;}
+        if ($scope.page.indexOf($scope.addMe) == -1) {
+            $scope.page.push($scope.addMe);
+        } else {
+            $scope.errortext = "The item is already in your shopping list.";
+        }
+    }
+    $scope.editItem = function (x) {
+        $scope.errortext = "";
+
+    }
+});
+
+
+
+    app.controller('MyController', function ($scope, $window) {
+        $scope.OpenPage2 = function () {
+            var $popup = $window.open("edit.html", "page2", "width=800%,height=800%");
+            $popup.Name = $scope.Name;
+        }
+    });
+</script>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Rushita</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="Dashboard.html">Home</a></li>
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Who we are</a></li>
+          <li><a href="Theteam.html">The Team</a></li>
+          <li><a href="#">Sponsers</a></li> </ul>
+
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Services<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Who we are</a></li>
+          <li><a href="Theteam.html">The Team</a></li>
+          <li><a href="#">Sponsers</a></li> </ul>
+
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Resource<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Who we are</a></li>
+          <li><a href="#">The Team</a></li>
+          <li><a href="#">Sponsers</a></li></ul>
+
+          <li class=""><a href="#">Contact Us</a></li>
+        </ul>
+
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+
+
+<div ng-app="Mypage" ng-cloak ng-controller="myCtrl"  style="max-width:50px;">
+<div class="ex2"><div class="container">
+
+    <div class="panel-heading">Dashboard</div>
+
+
+<table class="w3-table w3-centered">
+  <tr>
+
+    <th colspan="2"> Page Name<th>
+</tr>
+
+<tr ng-repeat="x in page">
+<td class="w3-btn w3-ripple" style="width: 212px;">{{x}}</td>
+<td style="width: 154px;"><!--<button style="cursor:pointer;" class="w3-right w3-margin-right"> -->
+  <input type="button" ng-app="MyApp" ng-controller="MyController"  class="btn btn-info" ng-model="Name" value="Edit" ng-click="OpenPage2()" /></td>
+</tr>
+
+  </td>
+  <div class="w3-container w3-light-grey w3-padding-16">
+    <div class="w3-row w3-margin-top">
+      <div class="w3-col s10">
+
+      </div></tr>
+      <div class="w3-col s2">
+        <button ng-click="createpage()" class="btn btn-danger navbar-btn">Create Page</button>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
+</div>
+</table>
+</body>
+</html>

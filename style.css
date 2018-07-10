@@ -1,0 +1,52 @@
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child {
+  background-color: #ffffff;
+}
+.panel-heading {
+background-color: #6E97FD;
+}
+.bg-1 {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+.bg-2 {
+    background-color: #474e5d;
+    color: #ffffff;
+}
+.bg-3 {
+    background-color: #ffffff;
+    color: #555555;
+}
+.container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:10px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+
+    .navbar {
+     margin-bottom: 0;
+     border-radius: 0;
+   }
+   footer {
+     background-color: ##0000FF;
+     padding: 25px;
+   }
+   div.ex2 {
+    max-width:500px;
+    margin: auto;
+
+}

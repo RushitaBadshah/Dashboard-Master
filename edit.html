@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.ex2 {
+    max-width:500px;
+    margin: auto;
+
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<meta charset="utf-8">
+<link rel="stylesheet" href="xyz.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  </head>
+<body>
+<script>
+         var myApp = angular.module('myApp', []);
+         myApp.directive('fileModel', ['$parse', function ($parse) {
+            return {
+               restrict: 'A',
+               link: function(scope, element, attrs) {
+                  var model = $parse(attrs.fileModel);
+                  var modelSetter = model.assign;
+
+                  element.bind('change', function(){
+                     scope.$apply(function(){
+                        modelSetter(scope, element[0].files[0]);
+                     });
+                  });
+               }
+            };
+         }]);
+
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.pagename = 'Team';
+    $scope.displayh = 'Our Team';
+    $scope.paget = ["Team Page","Home Page", "About Page", "Sponsers Page", "Event Page", "FAQ Page"];
+     $scope.pagen = ["On Page Link","On Navigation Link", "On Both"];
+});
+</script>
+<script language="javascript" type="text/javascript">
+function closeWindow() {
+window.open('','_parent','');
+window.close();
+}
+</script>
+
+
+
+<!-- http://www.yournewdesigner.com/css-experiments/javascript-window-close-firefox.html - Close the window -->
+<div class="ex2"><H2> Edit Page</h2>
+<form ng-app="myApp" ng-controller="validateCtrl"
+name="mypage" novalidate>
+
+<p>Page Name*<br>
+<input type="text" class="form-control" name="pagename" ng-model="pagename" required>
+<span style="color:red" ng-show="mypage.pagename.$dirty && mypage.pagename.$invalid">
+<span ng-show="mypage.pagename.$error.required">Page Name is required.</span>
+</span>
+</p>
+
+<p>Display Heading*<br>
+<input type="text" class="form-control" name="displayh" ng-model="displayh" required>
+<span style="color:red" ng-show="mypage.displayh.$dirty && mypage.displayh.$invalid">
+<span ng-show="mypage.displayh.$error.required">Display Heading is required.</span>
+</span>
+</p>
+
+<p >Page Type*<br>
+<select class="form-control" >
+<option  ng-repeat="x in paget">{{x}}</option> </select>
+</span>
+</p>
+
+
+<p>Page Navigation Type*<br>
+<select class="form-control">
+<option ng-repeat="x in pagen">{{x}}</option> </select>
+</span>
+</p>
+
+<div ng-controller = "myCtrl">
+         <input type = "file" file-model = "myFile"/>
+
+      </div>
+      <p><br/>
+
+<button  class="btn btn-info" ng-disabled="mypage.pagename.$dirty && myForm.pagename.$invalid ||
+myForm.displayh.$dirty && myForm.displayh.$invalid" ><a href="javascript:closeWindow();">Submit</a></button>
+
+
+</p>
+
+</div>
+</body>
+</html>
